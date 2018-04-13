@@ -160,7 +160,7 @@ void connectFour::make_move(const std::string &move)
     move_counter();
 
 }
-bool connectFour :: checkDown(int column)
+bool connectFour :: checkDown(int column)//this function is used to checck that the row is not filled so you can put a piece
 {
     int row = 0;
     if(theBoard[row][column].is_nothing() && row < 5)
@@ -458,7 +458,7 @@ bool connectFour :: is_game_over()
 {
     int tmpRow;
     int tmpCol;
-
+//Going through the whole array and checking in every direction given the functions
     for(int i = 0; i < 6; ++i)
     {
         for(int j = 0; j < 7; ++j)
