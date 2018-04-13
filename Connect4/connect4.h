@@ -27,6 +27,10 @@ public:
 
     bool connectFourUpLeft(int tmpRow, int tmpCol); // UpLeft
     bool connectFourDownRight(int tmpRow, int tmpCol);// DownRight
+	
+	
+    void yellowWins();
+    void redWins();
 
 	 
     

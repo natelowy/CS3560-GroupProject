@@ -187,8 +187,7 @@ bool connectFour :: connectFourleft(int tmpRow, int tmpCol )
     if(counter >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -200,8 +199,7 @@ bool connectFour :: connectFourleft(int tmpRow, int tmpCol )
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"   ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -222,8 +220,7 @@ bool connectFour :: connectFourDown(int tmpRow, int tmpCol)
     if(counter >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -235,8 +232,7 @@ bool connectFour :: connectFourDown(int tmpRow, int tmpCol)
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -257,8 +253,7 @@ bool connectFour :: connectFourUp(int tmpRow, int tmpCol)
     if(counter >= 4)
     {
  
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -270,8 +265,7 @@ bool connectFour :: connectFourUp(int tmpRow, int tmpCol)
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -293,9 +287,7 @@ bool connectFour :: connectFourUpRight(int tmpRow, int tmpCol)
     }
     if(counter >= 4)
     {
-        std::cout<<std::endl;
-        std::cout<<"HI";
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -307,8 +299,7 @@ bool connectFour :: connectFourUpRight(int tmpRow, int tmpCol)
     }
     if(counterForRed >= 4)
     {
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -330,8 +321,7 @@ bool connectFour:: connectFourUpLeft(int tmpRow, int tmpCol)
     }
     if(counter >= 4)
     {
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -343,8 +333,7 @@ bool connectFour:: connectFourUpLeft(int tmpRow, int tmpCol)
     }
     if(counterForRed >= 4)
     {
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        yellowWins();
         return true;
     }
     return false;
@@ -367,8 +356,7 @@ bool connectFour :: connectFourDownRight(int tmpRow, int tmpCol)
     if(counter >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -381,8 +369,7 @@ bool connectFour :: connectFourDownRight(int tmpRow, int tmpCol)
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -404,8 +391,7 @@ bool connectFour :: connectFourDownLeft(int tmpRow, int tmpCol)
     if(counter >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+        yellowWins();
         return true;
     }
 
@@ -418,8 +404,7 @@ bool connectFour :: connectFourDownLeft(int tmpRow, int tmpCol)
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
@@ -439,8 +424,7 @@ bool connectFour :: connectFourRight(int tmpRow, int tmpCol)
     }
     if(counter >= 4)
     {
-        std::cout<<std::endl;
-        std::cout<<"   ***** YELLOW WINS *****      ";
+       yellowWins();
         return true;
     }
 
@@ -452,17 +436,22 @@ bool connectFour :: connectFourRight(int tmpRow, int tmpCol)
     if(counterForRed >= 4)
     {
 
-        std::cout<<std::endl;
-        std::cout<<"    ***** RED WINS *****      ";
+        redWins();
         return true;
     }
     return false;
 
 }
-
-void connectFour :: scoreBoard()
+void connectFour :: redWins()
 {
+	std::cout<<std::endl;
+        std::cout<<RED<<"    ***** RED WINS *****      ";
 
+}
+void connectFour :: yellowWins()
+{
+	std::cout<<std::endl;
+        std::cout<<YELLOW<<"   ***** YELLOW WINS *****      ";
 
 }
 bool connectFour :: is_game_over()
