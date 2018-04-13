@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1518574853 source:c:\users\babacar\documents\codeblock programs\connect 4 buddy\game.cc
+	<cassert>
+	<climits>
+	<iostream>
+	<queue>
+	<string>
+	<windows.h>
+	<fstream>
+	"game.h"
+
+1518574869 c:\users\babacar\documents\codeblock programs\connect 4 buddy\game.h
+	<queue>
+	<string>
+
+1518572679 source:c:\users\babacar\documents\codeblock programs\connect 4 buddy\main.cpp
+	<iostream>
+	<cstdlib>
+	<fstream>
+	"game.h"
+	"connectfour.h"
+	"windows.h"
+
+1513639775 source:c:\users\babacar\documents\codeblock programs\connect 4 buddy\connect4.cc
+	"connect4.h"
+	<iostream>
+
+1513639898 c:\users\babacar\documents\codeblock programs\connect 4 buddy\connect4.h
+	"piece.h"
+
+1513920353 c:\users\babacar\documents\codeblock programs\connect 4 buddy\piece.h
+
+1518628673 c:\users\babacar\documents\codeblock programs\connect 4 buddy\connectfour.h
+	"game.h"
+	"piece.h"
+
+1518560542 source:c:\users\babacar\documents\codeblock programs\connect 4 buddy\connectfour.cc
+	<windows.h>
+	"connectfour.h"
+	<iostream>
+	<ctype.h>
+	<stdio.h>
+
