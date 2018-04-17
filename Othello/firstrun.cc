@@ -21,6 +21,24 @@ int main(){
 	cout << "X (you) plays first. You can only place pieces adjacent (not diagonally) to an opponent's piece.\n";
 	cout << "Pieces can only be positioned such that they cause at least one opponent's piece to be enclosed on two sides by yours.\n";
 
+	ins.open("savedgame.txt");
+	if (!(ins.fail())){
+		char loadgame;
+		cout << "Would you like to load your saved game? (y/n): ";
+		cin >> loadgame;
+		while (loadgame != 'Y' && loadgame != 'y' && loadgame != 'N' && loadgame != 'n'){
+			cout << "Invalid answer. Would you like to load your saved game? (y/n): ";
+			cin >> loadgame;
+		}
+		if (loadgame == 'Y' || loadgame == 'y'){
+			cout << "Success\n";
+		}
+		else if (loadgame == 'N' || loadgame == 'n'){
+			cout << "Won't do it.\n";
+		}
+
+	}
+
 	cout << "\nChoose an even row size between 4 and 18 (8 is normal): ";
 	cin >> rowsize;
 	while (rowsize % 2 != 0 || rowsize < 4 || rowsize > 18){
@@ -80,8 +98,6 @@ int main(){
 }
 
 void colormenu(string &c1, string &c2, string &ctext){
-	cout << "\nNOTE: Functionality hasn't actually been implemented yet. The board will be black/gray with white text.\n";
-	cout << "Part B should include the actual implementation as well as text color choice.\n";
 	cout << "The following are your tile color options:\n\n";
 	cout << WHITE << B_BLACK << "  BLACK  " << B_BR_BLACK << "  BR_BLACK  " << B_RED << "  RED  " << 
 	B_GREEN << "  GREEN  " << RESET << endl << B_YELLOW << "  YELLOW  " << B_BLUE << "  BLUE  " << B_MAGENTA << "  MAGENTA  " <<
