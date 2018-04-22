@@ -21,23 +21,7 @@ int main(){
 	cout << "X (you) plays first. You can only place pieces adjacent (not diagonally) to an opponent's piece.\n";
 	cout << "Pieces can only be positioned such that they cause at least one opponent's piece to be enclosed on two sides by yours.\n";
 
-	ins.open("savedgame.txt");
-	if (!(ins.fail())){
-		char loadgame;
-		cout << "Would you like to load your saved game? (y/n): ";
-		cin >> loadgame;
-		while (loadgame != 'Y' && loadgame != 'y' && loadgame != 'N' && loadgame != 'n'){
-			cout << "Invalid answer. Would you like to load your saved game? (y/n): ";
-			cin >> loadgame;
-		}
-		if (loadgame == 'Y' || loadgame == 'y'){
-			cout << "Success\n";
-		}
-		else if (loadgame == 'N' || loadgame == 'n'){
-			cout << "Won't do it.\n";
-		}
-
-	}
+	
 
 	cout << "\nChoose an even row size between 4 and 18 (8 is normal): ";
 	cin >> rowsize;

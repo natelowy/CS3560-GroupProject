@@ -171,6 +171,9 @@ namespace main_savitch_14
 	    }
 		make_move(move);
 		//Save user moves
+		if (move_number == 1){
+	    	remove("savedgame.txt");
+	    }
 		ofstream output;
 		output.open("savedgame.txt", ios::app);
 		output << move << endl;
