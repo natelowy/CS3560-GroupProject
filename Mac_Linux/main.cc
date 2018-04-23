@@ -1,15 +1,30 @@
 #include<iostream>
 #include<iomanip>
+#include <cstdlib>
 #include<fstream>
 #include"game.h"
+#include"game2.h"
 #include"othello.h"
 #include"colors.h"
+#include"checkers.h"
+#include"connect4.h"
 using namespace std;
 using namespace main_savitch_14;
 
 void colormenu(string &c1, string &c2, string &ctext);
 
 int main(){
+	bool quit = 1;
+	char quit_choice;
+	while(quit){
+	char choice1;
+	cout << "Would you like to Play a game of "<<endl;
+	cout <<"Checkers (c) , Othello (o), or Connect4(4) ?"<<endl;
+	cout << "Choice : ";
+	cin >> choice1;
+	cout << endl;
+	
+	if((choice1 == 'o') || (choice1 == 'O')){
 	game::who winner;
 	int rowsize, columnsize;
 	string c1, c2, ctext;
@@ -20,6 +35,8 @@ int main(){
 	cout << "\nWelcome to Othello/Reversi!\n";
 	cout << "X (you) plays first. You can only place pieces adjacent (not diagonally) to an opponent's piece.\n";
 	cout << "Pieces can only be positioned such that they cause at least one opponent's piece to be enclosed on two sides by yours.\n";
+
+	
 
 	cout << "\nChoose an even row size between 4 and 18 (8 is normal): ";
 	cin >> rowsize;
@@ -74,14 +91,53 @@ int main(){
 	else if (winner == game::COMPUTER)
 		cout << "\n\nThe winner is P2!\n";
 	else cout << "\n\nI have no idea what happened.\n";
+	}
+	
+	else if((choice1 == 'c') || (choice1 == 'C')){
+		Checkers game1;
+		int winner;
+		cout << "Player 1 is blue, player 2 is white" << endl;
+		cin.ignore();
+		winner = game1.play();
+		if(winner == main_savitch_14::game::HUMAN){
+			cout << "Game over. Player 1 wins" << endl;
+		}
+		else{
+			cout << "Game over. Player 2 wins" << endl;
+		}
+	}
+	else if((choice1 == '4')){
+		int choice;
 
-	return 0;
+    string restart;
+    string colorSwap;
+
+    ifstream fin;
+
+
+        connectFour obj;
+	cin.ignore();
+        obj.play();
+	}
+		
+	
+	else{
+		cout << "invalid choice" << endl;
+	}
+	cout << "Would you like to keep playing? (y or n): ";
+	cin >> quit_choice;
+	cout << endl;
+	if((quit_choice == 'n') || (quit_choice == 'N')){
+		quit = 0;
+	}
+	else{
+		quit = 1;
+	}
+
 
 }
-
+}
 void colormenu(string &c1, string &c2, string &ctext){
-	cout << "\nNOTE: Functionality hasn't actually been implemented yet. The board will be black/gray with white text.\n";
-	cout << "Part B should include the actual implementation as well as text color choice.\n";
 	cout << "The following are your tile color options:\n\n";
 	cout << WHITE << B_BLACK << "  BLACK  " << B_BR_BLACK << "  BR_BLACK  " << B_RED << "  RED  " << 
 	B_GREEN << "  GREEN  " << RESET << endl << B_YELLOW << "  YELLOW  " << B_BLUE << "  BLUE  " << B_MAGENTA << "  MAGENTA  " <<

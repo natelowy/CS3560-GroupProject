@@ -1,23 +1,19 @@
 // File: game.cxx
 
-/*
-Taylor Bruening
-game class implementation
-*/
-
 #include <cassert>    // Provides assert
 #include <climits>    // Provides INT_MAX and INT_MIN
 #include <iostream>   // Provides cin, cout
 #include <queue>      // Provides queue<string>
 #include <string>     // Provides string
 #include "game.h"     // Provides definition of game class
+#include <fstream>
 using namespace std;
 
 namespace main_savitch_14
 {
     //*************************************************************************
     // STATIC MEMBER CONSTANTS
-     const int game::SEARCH_LEVELS;
+    // const int game::SEARCH_LEVELS;
     
     //*************************************************************************
     // PUBLIC MEMBER FUNCTIONS
@@ -28,8 +24,9 @@ namespace main_savitch_14
     // The return value is the winner of the game (or NEUTRAL for a tie).
     {
 	restart( );
-	
-	while (!is_game_over( ))
+// Note that as you develop the game you will be gradually un-commenting 
+// this function.	
+	while (!is_game_over( )) // un-comment this
 	{
 	    display_status( );
 	    if (last_mover( ) == COMPUTER)
@@ -38,8 +35,9 @@ namespace main_savitch_14
 		make_computer_move( );
 	}
 	display_status( );
-	return winning();
-    } 
+	return winning(); //once you have implemented your own winning 
+		     // function change this to return winning();
+    }
 
 
     
@@ -54,7 +52,6 @@ namespace main_savitch_14
     string game::get_user_move( ) const
     {
 	string answer;
-	
 	display_message("Your move, please: ");
 	getline(cin, answer);
 	return answer;
@@ -63,7 +60,6 @@ namespace main_savitch_14
     game::who game::winning( ) const
     {
 	int value = evaluate( ); // Evaluate based on move that was just made.
-
 	if (value > 0)
 	    return last_mover( );
 	else if (value < 0)
@@ -71,7 +67,6 @@ namespace main_savitch_14
 	else
 	    return NEUTRAL;
     }
-
 
 
 
@@ -114,8 +109,6 @@ namespace main_savitch_14
 	    delete future;
 	    if (value > best_value)
 	    {
-		if (-value <= beat_this)
-		    return INT_MIN + 1; // Alpha-beta pruning
 		best_value = value;
 	    }
 	    moves.pop( );
@@ -136,45 +129,55 @@ namespace main_savitch_14
 	
 	// Compute all legal moves that the computer could make.
 	compute_moves(moves);
-	//assert(!moves.empty( ));
-	
-	// Evaluate each possible legal move, saving the index of the best
-	// in best_index and saving its value in best_value.
-	best_value = INT_MIN;
-	while (!moves.empty( ))
-	{
-	    future = clone( );
-	    future->make_move(moves.front( ));
-	    value = future->eval_with_lookahead(SEARCH_LEVELS, best_value);
-	    delete future;
-	    if (value >= best_value)
-	    {
-		best_value = value;
-		best_move = moves.front( );
-	    }
-	    moves.pop( );
-	}
-	    
-	// Make the best move.
-	make_move(best_move);
+	if (!moves.empty()){
+		//assert(!moves.empty( ));
+		
+		// Evaluate each possible legal move, saving the index of the best
+		// in best_index and saving its value in best_value.
+		best_value = INT_MIN;
+		while (!moves.empty( ))
+		{
+		    future = clone( );
+
+		    future->make_move(moves.front( ));
+		    value = future->eval_with_lookahead(SEARCH_LEVELS, best_value);
+		    delete future;
+		    if (value >= best_value)
+		    {
+			best_value = value;
+			best_move = moves.front( );
+		    }
+		    moves.pop( );
+		}
+
+		    
+		// Make the best move.
+		make_move(best_move);
     }
+    else
+	make_move("pass");
+}
 
-      void game::make_human_move( )
+    void game::make_human_move( )
     {
-
         string move;
-
-	move = get_user_move( );
-
-	while (!is_legal(move))
-	{
-	    display_message("Illegal move.\n");
-	    move = get_user_move( );
-
-        }
-	make_move(move);
+		move = get_user_move( );
+		while (!is_legal(move))
+		{
+		    display_message("Illegal move.\n");
+		    move = get_user_move( );
+	    }
+		make_move(move);
+		//Save user moves
+		if (move_number == 1){
+	    	remove("savedgame.txt");
+	    }
+		ofstream output;
+		output.open("savedgame.txt", ios::app);
+		output << move << endl;
     }
 
 }
 
 	
+

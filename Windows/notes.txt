@@ -1,0 +1,7 @@
+Notes & Changes:
+
+Changes:
+-Added a saved user-input log to repeat games
+-Removed note saying functionality not implemented. It is now functional.
+-Dialogue clarity improvements
+-Prompts user for loading data if there is savedgame.txt
