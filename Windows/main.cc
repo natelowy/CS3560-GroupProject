@@ -31,7 +31,15 @@ int main(){
 		return GetLastError();
 	}
 
+	bool quit = 1;
+	char quit_choice;
+	while(quit){
+	char choice1;
+	cout << "checkers, Othello, or connect4 (enter c or o or 4): ";
+	cin >> choice1;
+	cout << endl;
 
+	if((choice1 == 'o') || (choice1 == 'O')){
 	game::who winner;
 	int rowsize, columnsize;
 	string c1, c2, ctext;
@@ -97,7 +105,46 @@ int main(){
 	else if (winner == game::COMPUTER)
 		cout << "\n\nThe winner is P2!\n";
 	else cout << "\n\nI have no idea what happened.\n";
+	}
 
+	else if((choice1 == 'c') || (choice1 == 'C')){
+		Checkers game1;
+		int winner;
+		cout << "Player 1 is blue, player 2 is white" << endl;
+		winner = game1.play();
+		if(winner == main_savitch_14::game::HUMAN){
+			cout << "Game over. Player 1 wins" << endl;
+		}
+		else{
+			cout << "Game over. Player 2 wins" << endl;
+		}
+	}
+
+	else if((choice1 == '4')){
+		int choice;
+
+    string restart;
+    string colorSwap;
+
+    ifstream fin;
+
+
+        connectFour obj;
+        obj.play();
+	}
+
+	else{
+		cout << "invalid choice" << endl;
+	}
+	cout << "keep playing?(y or n): ";
+	cin >> quit_choice;
+	cout << endl;
+	if((quit_choice == 'n') || (quit_choice == 'N')){
+		quit = 0;
+	}
+	else{
+		quit = 1;
+	}
 	return 0;
 
 }
