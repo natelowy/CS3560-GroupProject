@@ -6,6 +6,7 @@
 #include <queue>      // Provides queue<string>
 #include <string>     // Provides string
 #include "game.h"     // Provides definition of game class
+#include <fstream>
 using namespace std;
 
 namespace main_savitch_14
@@ -162,13 +163,20 @@ namespace main_savitch_14
     {
         string move;
 
-	move = get_user_move( );
-	while (!is_legal(move))
-	{
-	    display_message("Illegal move.\n");
-	    move = get_user_move( );
-        }
-	make_move(move);
+		move = get_user_move( );
+		while (!is_legal(move))
+		{
+		    display_message("Illegal move.\n");
+		    move = get_user_move( );
+	    }
+		make_move(move);
+		//Save user moves
+		if (move_number == 1){
+	    	remove("savedgame.txt");
+	    }
+		ofstream output;
+		output.open("savedgame.txt", ios::app);
+		output << move << endl;
     }
 
 }

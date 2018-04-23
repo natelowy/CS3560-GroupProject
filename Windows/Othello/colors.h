@@ -30,33 +30,37 @@
 #include <string>
 using namespace std;
 
-const string BLINK     = "\e[5m";          //don't use this your
+const string BLINK     = "\x1bSC[5m";          //don't use this your
 					   //professor will probibly
 					   //beat you to death if
 					   //you do feel the need to
 					   //use blink!!!
-const string BOLD      = "\e[1m";
+const string BOLD      = "\x1b[1m";
 
-const string RESET     = "\e[0m";
-const string ERROR     = "\e[1;41;37m\a";
-const string MENU       = "\e[44;37m";
+const string RESET     = "\x1b[0m";
+const string MENU       = "\x1b[44;37m";
 
-const string BLACK      = "\e[30m";
-const string RED        = "\e[31m";
-const string GREEN      = "\e[32m";
-const string YELLOW     = "\e[33m";
-const string BLUE       = "\e[34m";
-const string MAGENTA    = "\e[35m";
-const string CYAN       = "\e[36m";
-const string WHITE      = "\e[37m";
+const string BLACK      = "\x1b[30m";
+const string RED        = "\x1b[31m";
+const string GREEN      = "\x1b[32m";
+const string YELLOW     = "\x1b[33m";
+const string BLUE       = "\x1b[34m";
+const string MAGENTA    = "\x1b[35m";
+const string CYAN       = "\x1b[36m";
+const string BR_CYAN      = "\x1b[1;36m";
+const string WHITE      = "\x1b[1;37m";
+//I've actually modified this to be bright white, since it shows up more clearly
+//const string WHITE      = "\x1b[1;37m";
 
-const string B_BLACK    = "\e[40m";
-const string B_RED      = "\e[41m";
-const string B_GREEN   = "\e[42m";
-const string B_YELLOW  = "\e[43m";
-const string B_BLUE    = "\e[44m";
-const string B_MAGENTA = "\e[45m";
-const string B_CYAN    = "\e[46m";
-const string B_WHITE   = "\e[47m";
+const string B_BLACK    = "\x1b[40m";
+const string B_BR_BLACK = "\x1b[100m";	//Added for colorblindness settings
+const string B_RED      = "\x1b[41m";
+const string B_GREEN   = "\x1b[42m";
+const string B_YELLOW  = "\x1b[43m";
+const string B_BLUE    = "\x1b[44m";
+const string B_MAGENTA = "\x1b[45m";
+const string B_CYAN    = "\x1b[46m";
+const string B_WHITE   = "\x1b[47m";
 
 #endif //COLORS_H
+

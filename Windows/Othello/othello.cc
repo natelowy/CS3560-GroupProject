@@ -1,11 +1,11 @@
-
-
 #include <iostream>   // Provides cin, cout
 #include <string>     // Provides string
 #include <iomanip>
 #include "game.h"     // Provides definition of game class
 #include "othello.h"
 #include <fstream>
+#include <stdio.h>
+#include <ctype.h>
 #include <string>
 #include "colors.h"
 using namespace std;
@@ -13,6 +13,7 @@ using namespace std;
 namespace main_savitch_14{
 
 
+	
 
 	////////////////////////////////
 
@@ -159,7 +160,7 @@ namespace main_savitch_14{
     		cout << cl1 << cltext << "These are your color settings." << RESET << endl;
     		cout << cl2 << cltext << "These are your color settings." << RESET << endl;
     		display_status();
-	    	cout << "This is your current color setting. Would you like to save this?\n";
+	    	cout << "This is your current color setting. Would you like to save this as your default?\n";
 	    	cout << "You can always undo this by deleting the file called 'cb' in the game's folder) y/n: ";
 	    	cin >> answer;
 	    	if (answer == 'Y' || answer == 'y'){
@@ -244,7 +245,6 @@ namespace main_savitch_14{
     			}
     		}
     	}
-
     	//cout << endl;
     };
 

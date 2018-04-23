@@ -1,10 +1,3 @@
-// File: game.h (part of the namespace main_savitch_14)
-
-/*
-Taylor Bruening
-Header file for game class
-*/
-
 
 #ifndef MAIN_SAVITCH_GAME
 #define MAIN_SAVITCH_GAME
@@ -20,7 +13,7 @@ namespace main_savitch_14
 	enum who { HUMAN, NEUTRAL, COMPUTER }; // Possible game outcomes
 	
 	// CONSTRUCTOR and DESTRUCTOR
-	game( ) { move_number = 0; }
+	//game( ) { move_number = 0; }
 	virtual ~game( ) { }
 	
 	// PUBLIC MEMBER FUNCTIONS
@@ -44,10 +37,10 @@ namespace main_savitch_14
 	    { return (move_number % 2 == 0 ? HUMAN : COMPUTER); }
 	virtual who opposite(who player) const
 	    { return (player == HUMAN) ? COMPUTER : HUMAN; }
-  	virtual who winning( ) const;
+    	virtual who winning( ) const;
 
 	// *******************************************************************
-	// VIRTUAL FUNCTIONS THAT MUST BE OVERRIDDEND:
+	// VIRTUAL FUNCTIONS THAT MUST BE OVERRIDDEN:
 	// The overriding function should call the original when it finishes.
 	// *******************************************************************
 	// Have the next player make a specified move:
@@ -62,16 +55,16 @@ namespace main_savitch_14
         // Return a pointer to a copy of myself:
     	virtual game* clone( ) const = 0;
         // Compute all the moves that the next player can make:
-    	virtual void compute_moves(std::queue<std::string>& moves)const = 0;
+    	virtual void compute_moves(std::queue<std::string>& moves) const = 0;
     	// Display the status of the current game:
-    	virtual void display_status( ) = 0;
+    	virtual void display_status( ) const = 0;
     	// Evaluate a board position:
 	// NOTE: positive values are good for the computer.
     	virtual int evaluate( ) const = 0;
     	// Return true if the current game is finished:
-    	virtual bool is_game_over( ) = 0;
+    	virtual bool is_game_over( ) const = 0;
     	// Return true if the given move is legal for the next player:
-    	virtual bool is_legal(const std::string& move) = 0;
+    	virtual bool is_legal(const std::string& move) const = 0;
 
     private:
         // MEMBER VARIABLES
@@ -85,6 +78,12 @@ namespace main_savitch_14
 	void make_computer_move( );
 	void make_human_move( );
     };
+
+
+
 }
 
+
+
 #endif
+

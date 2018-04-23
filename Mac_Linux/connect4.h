@@ -1,8 +1,8 @@
-#include "game.h"
+#include "game2.h"
 #include "piece.h"
 
 namespace main_savitch_14{
-class connectFour: public game
+class connectFour: public game2
 {
 public:
 
@@ -37,7 +37,7 @@ public:
     void scoreBoard();
     //This is where is stops
 
-    virtual game* clone()const{}
+    virtual game2* clone()const{}
     virtual void compute_moves(std::queue<std::string>& moves) const{}
     //virtual bool is_legal(const std::string& move){}
     //virtual bool is_game_over() const{}
