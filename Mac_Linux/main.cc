@@ -122,7 +122,7 @@ int main(){
 		
 	
 	else{///invalid choice
-		cout << "invalid choice" << endl;
+		cout << "Invalid Choice" << endl;
 	}
 	cout << "Would you like to keep playing? (y or n): ";
 	cin >> quit_choice;
