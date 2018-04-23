@@ -8,6 +8,8 @@
 #include"colors.h"
 #include"checkers.h"
 #include"connect4.h"
+
+int MENU1 = 0;
 using namespace std;
 using namespace main_savitch_14;
 
@@ -83,7 +85,7 @@ int main(){
 
 
 	winner = mygame.play();
-
+	if(MENU1 == 0){
 	if(winner == game::HUMAN)
 	cout << "\n\nThe winner is P1!\n";
 	else if(winner == game::NEUTRAL)
@@ -92,6 +94,10 @@ int main(){
 		cout << "\n\nThe winner is P2!\n";
 	else cout << "\n\nI have no idea what happened.\n";
 	}
+	else{
+		MENU1 = 0;
+	}
+	}
 	
 	else if((choice1 == 'c') || (choice1 == 'C')){///if they choose checkers
 		Checkers game1;
@@ -99,11 +105,16 @@ int main(){
 		cout << "Player 1 is blue, player 2 is white" << endl;
 		cin.ignore();
 		winner = game1.play();
+		if(MENU1 == 0){
 		if(winner == main_savitch_14::game::HUMAN){
 			cout << "Game over. Player 1 wins" << endl;
 		}
 		else{
 			cout << "Game over. Player 2 wins" << endl;
+		}
+		}
+		else{
+			MENU1 = 0;
 		}
 	}
 	else if((choice1 == '4')){///if they choose connect 4
@@ -118,6 +129,9 @@ int main(){
         connectFour obj;
 	cin.ignore();
         obj.play();
+		if(MENU1 == 1){
+			MENU1 = 0;
+		}
 	}
 		
 	
@@ -136,6 +150,7 @@ int main(){
 
 
 }
+	return 0;
 }
 void colormenu(string &c1, string &c2, string &ctext){
 	cout << "The following are your tile color options:\n\n";

@@ -11,6 +11,7 @@ game class implementation
 #include <queue>      // Provides queue<string>
 #include <string>     // Provides string
 #include "game2.h"     // Provides definition of game class
+#include "game.h"
 using namespace std;
 
 namespace main_savitch_14
@@ -36,6 +37,7 @@ namespace main_savitch_14
 		make_human_move( );
 	    else
 		make_computer_move( );
+		if(MENU1 == 1)break;
 	}
 	display_status( );
 	return winning();
@@ -168,10 +170,17 @@ namespace main_savitch_14
 
 	while (!is_legal(move))
 	{
+		if(move == "quit"){
+			MENU1 = 1;
+			break;
+		}
 	    display_message("Illegal move.\n");
 	    move = get_user_move( );
 
         }
+		if(MENU1 == 1){
+			return;
+		}
 	make_move(move);
     }
 

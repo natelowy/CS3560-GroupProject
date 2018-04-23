@@ -33,6 +33,7 @@ namespace main_savitch_14
 		make_human_move( );
 	    else
 		make_computer_move( );
+		if(MENU1 == 1)break;
 	}
 	display_status( );
 	return winning(); //once you have implemented your own winning 
@@ -164,9 +165,16 @@ namespace main_savitch_14
 		move = get_user_move( );
 		while (!is_legal(move))
 		{
+			if(move == "quit"){
+			MENU1 = 1;
+			break;
+		}
 		    display_message("Illegal move.\n");
 		    move = get_user_move( );
 	    }
+		if(MENU1 == 1){
+			return;
+		}
 		make_move(move);
 		//Save user moves
 		if (move_number == 1){

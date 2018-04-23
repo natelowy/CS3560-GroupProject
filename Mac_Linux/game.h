@@ -3,7 +3,7 @@
 #define MAIN_SAVITCH_GAME
 #include <queue>   // Provides queue<string>
 #include <string>  // Provides string
-
+extern int MENU1;
 namespace main_savitch_14
 {
     class game

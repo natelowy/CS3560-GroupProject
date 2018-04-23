@@ -7,6 +7,7 @@
 #include"game.h"
 #include"othello.h"
 #include"colors.h"
+int MENU1 = 0;
 using namespace std;
 using namespace main_savitch_14;
 
@@ -38,7 +39,6 @@ int main(){
 	cout << "checkers, Othello, or connect4 (enter c or o or 4): ";
 	cin >> choice1;
 	cout << endl;
-
 	if((choice1 == 'o') || (choice1 == 'O')){
 	game::who winner;
 	int rowsize, columnsize;
@@ -97,7 +97,7 @@ int main(){
 
 
 	winner = mygame.play();
-
+	if(MENU1 == 0){
 	if(winner == game::HUMAN)
 	cout << "\n\nThe winner is P1!\n";
 	else if(winner == game::NEUTRAL)
@@ -106,17 +106,26 @@ int main(){
 		cout << "\n\nThe winner is P2!\n";
 	else cout << "\n\nI have no idea what happened.\n";
 	}
+	else{
+		MENU1 = 0;
+	}
+	}
 
 	else if((choice1 == 'c') || (choice1 == 'C')){
 		Checkers game1;
 		int winner;
 		cout << "Player 1 is blue, player 2 is white" << endl;
 		winner = game1.play();
+		if(MENU1 == 0){
 		if(winner == main_savitch_14::game::HUMAN){
 			cout << "Game over. Player 1 wins" << endl;
 		}
 		else{
 			cout << "Game over. Player 2 wins" << endl;
+		}
+		}
+		else{
+			MENU1 = 0;
 		}
 	}
 
@@ -131,6 +140,9 @@ int main(){
 
         connectFour obj;
         obj.play();
+			if(MENU1 == 1){
+				MENU1 = 0;
+			}
 	}
 
 	else{
@@ -145,6 +157,8 @@ int main(){
 	else{
 		quit = 1;
 	}
+
+}
 	return 0;
 
 }
