@@ -11,10 +11,10 @@
 using namespace std;
 using namespace main_savitch_14;
 
-void colormenu(string &c1, string &c2, string &ctext);
+void colormenu(string &c1, string &c2, string &ctext);///color menu for othello
 
 int main(){
-	bool quit = 1;
+	bool quit = 1;///used for playing again
 	char quit_choice;
 	while(quit){
 	char choice1;
@@ -22,7 +22,7 @@ int main(){
 	cin >> choice1;
 	cout << endl;
 	
-	if((choice1 == 'o') || (choice1 == 'O')){
+	if((choice1 == 'o') || (choice1 == 'O')){///if they choose othello
 	game::who winner;
 	int rowsize, columnsize;
 	string c1, c2, ctext;
@@ -91,7 +91,7 @@ int main(){
 	else cout << "\n\nI have no idea what happened.\n";
 	}
 	
-	else if((choice1 == 'c') || (choice1 == 'C')){
+	else if((choice1 == 'c') || (choice1 == 'C')){///if they choose checkers
 		Checkers game1;
 		int winner;
 		cout << "Player 1 is blue, player 2 is white" << endl;
@@ -103,7 +103,7 @@ int main(){
 			cout << "Game over. Player 2 wins" << endl;
 		}
 	}
-	else if((choice1 == '4')){
+	else if((choice1 == '4')){///if they choose connect 4
 		int choice;
 
     string restart;
@@ -117,7 +117,7 @@ int main(){
 	}
 		
 	
-	else{
+	else{///invalid choice
 		cout << "invalid choice" << endl;
 	}
 	cout << "keep playing?(y or n): ";
@@ -126,7 +126,7 @@ int main(){
 	if((quit_choice == 'n') || (quit_choice == 'N')){
 		quit = 0;
 	}
-	else{
+	else{///quit
 		quit = 1;
 	}
 

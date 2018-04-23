@@ -1,6 +1,6 @@
 /******************************************************************
     This is the implementation file for the checkers class, derived fromt he game class.
-		Eric Hahn			April 12, 2016
+					
 ********************************************************************/
 #include "checkers.h"
 #include "colors.h"

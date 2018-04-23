@@ -30,11 +30,11 @@
 #include <string>
 using namespace std;
 
-const string BLINK     = "\e[5m";          //don't use this your
-					   //professor will probibly
-					   //beat you to death if
-					   //you do feel the need to
-					   //use blink!!!
+const string BLINK     = "\e[5m";          /**don't use this your
+					   professor will probibly
+					   beat you to death if
+					   you do feel the need to
+					   use blink!!!*/
 const string BOLD      = "\e[1m";
 
 const string RESET     = "\e[0m";
@@ -50,11 +50,11 @@ const string MAGENTA    = "\e[35m";
 const string CYAN       = "\e[36m";
 const string BR_CYAN      = "\e[1;36m";
 const string WHITE      = "\e[1;37m";
-//I've actually modified this to be bright white, since it shows up more clearly
-//const string WHITE      = "\e[1;37m";
+/**I've actually modified this to be bright white, since it shows up more clearly
+const string WHITE      = "\e[1;37m";*/
 
 const string B_BLACK    = "\e[40m";
-const string B_BR_BLACK = "\e[100m";	//Added for colorblindness settings
+const string B_BR_BLACK = "\e[100m";	///Added for colorblindness settings
 const string B_RED      = "\e[41m";
 const string B_GREEN   = "\e[42m";
 const string B_YELLOW  = "\e[43m";
@@ -63,5 +63,5 @@ const string B_MAGENTA = "\e[45m";
 const string B_CYAN    = "\e[46m";
 const string B_WHITE   = "\e[47m";
 
-#endif //COLORS_H
+#endif ///COLORS_H
 

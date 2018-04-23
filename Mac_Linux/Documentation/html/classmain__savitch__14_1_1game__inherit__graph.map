@@ -1,0 +1,4 @@
+<map id="main_savitch_14::game" name="main_savitch_14::game">
+<area shape="rect" id="node2" href="$classmain__savitch__14_1_1_checkers.html" title="main_savitch_14::Checkers" alt="" coords="5,80,189,107"/>
+<area shape="rect" id="node3" href="$classmain__savitch__14_1_1_othello.html" title="main_savitch_14::Othello" alt="" coords="214,80,383,107"/>
+</map>
