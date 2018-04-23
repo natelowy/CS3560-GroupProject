@@ -586,7 +586,7 @@ bool connectFour :: is_game_over()
     {
 
 
-        std::cout<<"    ***** A DRAW  *****      ";
+        std::cout<<GREEN<<"    ***** A DRAW  *****      ";
         catcher = true;
         return true;
 
